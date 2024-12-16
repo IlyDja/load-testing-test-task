@@ -1,4 +1,11 @@
-with open(input()) as file:
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("nums_path")
+args = parser.parse_args()
+
+file_path = args.nums_path
+
+with open(file_path) as file:
     nums = [int(n) for n in file.read().split()]
 
 

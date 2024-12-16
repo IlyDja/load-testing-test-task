@@ -1,4 +1,10 @@
-n, m = int(input()), int(input())
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("n")
+parser.add_argument("m")
+args = parser.parse_args()
+
+n, m = int(args.n), int(args.m)
 circular_array = list(range(1, n + 1))
 first_el_array = circular_array[0]
 last_el_array = circular_array[-1]
@@ -23,8 +29,4 @@ while True:
         break
 
 firsts = ''.join([str(interval[0]) for interval in intervals])
-# intervals = ', '.join(map(lambda l: ''.join(map(str, l)), intervals))
-# print('Круговой массив: ', *circular_array[:n], '.', sep='')
-# print(f'При длине обхода {m} получаем интервалы: {intervals}.')
-# print(f'Полученный путь: {firsts}.')
 print(firsts)
